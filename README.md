@@ -1,4 +1,4 @@
-<img width="1600" height="900" alt="AdobeExpressPhotos_d792ddf113784b15ac5ed35fdee8540d_CopyEdited" src="https://github.com/user-attachments/assets/62259eb4-c20d-41c7-8dde-ffd7e3df6a52" /><img width="1600" height="900" alt="AdobeExpressPhotos_d792ddf113784b15ac5ed35fdee8540d_CopyEdited" src="https://github.com/user-attachments/assets/9a6f2899-8fd8-4460-ac9f-6dc2184be63d" /># EXPT 2 - Verification of Logic Gates
+# EXPT 2 - Verification of Logic Gates
 ### SIMULATION AND VERIFICATION OF AND, OR, AND NOT GATES
 ## Aim
 To design, implement, and verify the functionality of basic AND, OR, and NOT logic gates using Verilog HDL, and verify the functionality using Synopsys VCS and DVE.
