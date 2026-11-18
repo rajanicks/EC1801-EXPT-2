@@ -1,4 +1,4 @@
-# EXPT 2 - Verification of Logic Gates
+<img width="1600" height="900" alt="AdobeExpressPhotos_d792ddf113784b15ac5ed35fdee8540d_CopyEdited" src="https://github.com/user-attachments/assets/62259eb4-c20d-41c7-8dde-ffd7e3df6a52" /><img width="1600" height="900" alt="AdobeExpressPhotos_d792ddf113784b15ac5ed35fdee8540d_CopyEdited" src="https://github.com/user-attachments/assets/9a6f2899-8fd8-4460-ac9f-6dc2184be63d" /># EXPT 2 - Verification of Logic Gates
 ### SIMULATION AND VERIFICATION OF AND, OR, AND NOT GATES
 ## Aim
 To design, implement, and verify the functionality of basic AND, OR, and NOT logic gates using Verilog HDL, and verify the functionality using Synopsys VCS and DVE.
@@ -21,15 +21,55 @@ File name	Purpose
 logic_gates.v	Logic-gate RTL
 logic_gates_tb.v	All input combinations and VCD generation
  # Verilog  Program
+ module basic_gates (
+    input  wire a,
+    input  wire b,
+    output wire y_and,
+    output wire y_or,
+    output wire y_not
+);
+
+    assign y_and = a & b;   // AND gate
+    assign y_or  = a | b;   // OR gate
+    assign y_not = ~a;      // NOT gate (inverter)
+
+endmodule
+
+
 
 # **Test Bench Program**
+module tb2;
 
+    reg a, b;
+    wire y_and, y_or, y_not;
 
+    // Instantiate the design under test (DUT)
+    basic_gates uut (
+        .a(a),
+        .b(b),
+        .y_and(y_and),
+        .y_or(y_or),
+        .y_not(y_not)
+    );
 
+    initial begin
+        // ---- VCD dump setup ----
+        $dumpfile("basic_gates.vcd");   // name of the VCD file to be generated
+        $dumpvars(0, tb2);               // dump all signals in this testbench hierarchy
 
- 
-<img width="940" height="318" alt="image" src="https://github.com/user-attachments/assets/8a343bdb-ffb4-4aac-8b88-cf59eca374a8" />
+        // ---- Apply all 4 input combinations ----
+        $monitor("Time=%0t a=%b b=%b | AND=%b OR=%b NOT(a)=%b", $time, a, b, y_and, y_or, y_not);
 
+        a = 0; b = 0; #10;
+        a = 0; b = 1; #10;
+        a = 1; b = 0; #10;
+        a = 1; b = 1; #10;
+
+        #10 $finish;
+#10;
+    end
+
+endmodule
 # Simulation Procedure
 STEP 1 – Open Terminal
 Open a terminal in the experiment folder.
@@ -78,6 +118,11 @@ Y_NOT = A'
 The design was compiled and simulated using Synopsys VCS, and the functionality was verified using DVE waveform analysis, matching the expected truth table.
 Output
 # OUTPUT
+<img width="1600" height="900" alt="AdobeExpressPhotos_4cb96acaac51492db08c67046f4658a7_CopyEdited" src="https://github.com/user-attachments/assets/3c3cfb99-1a25-45e6-b6ec-f75680c5f164" />
+
+
+
+
 
 
  
